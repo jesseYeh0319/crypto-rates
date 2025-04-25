@@ -1,0 +1,33 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.log
+
+# Maven
+/target/
+
+# IntelliJ
+.idea/
+*.iws
+*.ipr
+*.iml
+/out/
+data/
+htmlReport/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Spring Boot
+/application.yml
+/application.properties
+
+
+Dockerfile
+HELP.md
+mvnw
+mvnw.cmd

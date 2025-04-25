@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/demo
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:   # 即使沒密碼，也要保留這一行！
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+
+api:
+  url: https://kengp3.github.io/blog/coindesk.json
