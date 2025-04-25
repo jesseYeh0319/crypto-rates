@@ -55,12 +55,14 @@ public class CurrencyViewServiceImpl implements CurrencyViewService {
 
     // 轉換邏輯
     private Map<String, CurrencySimpleResponse> convertToSimpleMap(CurrencyRateResponse response, Map<String, String> currencyMap) {
-        return Objects.requireNonNull(response).getBpi().entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> {
-            CurrencyDetail detail = entry.getValue();
-            String code = detail.getCode();
-            String name = currencyMap.get(code);
-            BigDecimal rate = detail.getRate_float();
-            return new CurrencySimpleResponse(name, rate);
-        }));
+        return Objects.requireNonNull(response).getBpi().entrySet().stream()
+                .filter(entry -> currencyMap.containsKey(entry.getKey())) // 增加過濾條件
+                .collect(Collectors.toMap(Map.Entry::getKey, entry -> {
+                    CurrencyDetail detail = entry.getValue();
+                    String code = detail.getCode();
+                    String name = currencyMap.get(code);
+                    BigDecimal rate = detail.getRate_float();
+                    return new CurrencySimpleResponse(name, rate);
+                }));
     }
 }
