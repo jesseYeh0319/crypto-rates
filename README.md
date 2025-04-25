@@ -20,4 +20,5 @@ CREATE TABLE CURRENCY (
 
 INSERT INTO CURRENCY (CODE, SYMBOL, EN_NAME, ZH_NAME) VALUES
 ('USD', '$', 'United States Dollar', '美元'),
+('GBP', '£', 'British Pound Sterling', '英鎊'),
 ('EUR', '€', 'Euro', '歐元');
